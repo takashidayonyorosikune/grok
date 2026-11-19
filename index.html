@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GENDER VERIFICATION // OFFICIAL</title>
+<style>
+  @import url('https://googleapis.com');
+
+  body {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+  .badge {
+    display: inline-block;
+    background: #ff0055;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin: 0 0 8px;
+    letter-spacing: 0.05em;
+  }
+  .sub {
+    font-size: 0.85rem;
+    color: #b8b8d1;
+    margin-bottom: 30px;
+  }
+  .gender-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #ff4d8d;
+    border-radius: 16px;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+  }
+  .gender-label {
+    font-size: 0.8rem;
+    color: #ff99bb;
+    letter-spacing: 0.15em;
+    margin-bottom: 15px;
+  }
+  .btn-trap {
+    display: block;
+    width: 100%;
+    background: linear-gradient(90deg, #ff4d8d, #ff0055);
+    color: #ffffff;
+    border: none;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 0, 85, 0.6);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-trap:hover {
+    transform: scale(1.04);
+  }
+  .btn-trap:active {
+    transform: scale(0.96);
+  }
+  .footer {
+    margin-top: 25px;
+    font-size: 0.7rem;
+    color: #8888aa;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="badge">✔ Verified Profile</div>
+  <h1>MY REAL GENDER</h1>
+  <div class="sub">Click the button below to verify</div>
+
+  <div class="gender-box" id="box">
+    <div class="gender-label">STATUS: HIDDEN 🔒</div>
+    <button class="btn-trap" onclick="checkGender()">
+      👁️ 性別を確認 (VERIFY)
+    </button>
+  </div>
+
+  <div class="footer">
+    © 2026 grok_chickenhubowner. All rights reserved.
+  </div>
+</div>
+
+<script>
+  function checkGender() {
+    // ブラウザに保存されたクリック回数を取得（初回は0）
+    let count = parseInt(localStorage.getItem('genderClickCount') || '0', 10);
+    count += 1;
+    localStorage.setItem('genderClickCount', count);
+
+    const box = document.getElementById('box');
+    box.innerHTML = `
+      <div class="gender-label" style="color: #00f2fe;">VERIFYING...</div>
+      <div style="font-size: 1rem;">性別データを照会中... ⏳</div>
+    `;
+
+    setTimeout(() => {
+      if (count === 1) {
+        // 1回目：あなたのTikTokへ飛ぶ
+        window.location.href = "https://tiktok.com";
+      } else if (count === 2) {
+        // 2回目：YouTubeへ飛ぶ
+        window.location.href = "https://youtube.com";
+      } else {
+        // 3回目以降：Discord招待リンクへ飛ぶ
+        window.location.href = "https://discord.com/invite/dcus";
+      }
+    }, 600);
+  }
+</script>
+
+</body>
+</html>
